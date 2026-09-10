@@ -22,7 +22,8 @@ app.secret_key = os.environ.get(
     "change-this-secret-key-before-production"
 )
 
-DATABASE = "database.db"
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+DATABASE = os.path.join(BASE_DIR, "database.db")
 
 
 # ---------------------------------------------------------
@@ -903,10 +904,11 @@ def update_appointment_status(appointment_id):
 # RUN APPLICATION
 # ---------------------------------------------------------
 
+# Initialize database when the application starts
+init_db()
+
+
 if __name__ == "__main__":
-
-    init_db()
-
     app.run(
         debug=True,
         host="127.0.0.1",
