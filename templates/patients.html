@@ -1,0 +1,140 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patients
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between mb-4">
+
+            <div>
+
+                <h1>
+                    Patients
+                </h1>
+
+                <p class="text-muted">
+                    Registered patient accounts.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('admin_dashboard') }}"
+                class="btn btn-outline-primary"
+            >
+                Back to Dashboard
+            </a>
+
+        </div>
+
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                {% if patients %}
+
+                <div class="table-responsive">
+
+                    <table class="table align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Name
+                                </th>
+
+                                <th>
+                                    Email
+                                </th>
+
+                                <th>
+                                    Phone
+                                </th>
+
+                                <th>
+                                    Registered
+                                </th>
+
+                                <th>
+                                    Action
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for patient in patients %}
+
+                            <tr>
+
+                                <td>
+                                    <strong>
+                                        {{ patient["name"] }}
+                                    </strong>
+                                </td>
+
+                                <td>
+                                    {{ patient["email"] }}
+                                </td>
+
+                                <td>
+                                    {{ patient["phone"] or "-" }}
+                                </td>
+
+                                <td>
+                                    {{ patient["created_at"] }}
+                                </td>
+
+                                <td>
+
+                                    <a
+                                        href="{{ url_for('patient_detail', patient_id=patient['id']) }}"
+                                        class="btn btn-sm btn-primary"
+                                    >
+                                        View
+                                    </a>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <h5>
+                        No patients registered yet.
+                    </h5>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

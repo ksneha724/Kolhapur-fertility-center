@@ -1,0 +1,274 @@
+{% extends "base.html" %}
+
+{% block title %}
+Admin Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="container">
+
+        <div class="mb-4">
+
+            <h1>
+                Admin Dashboard
+            </h1>
+
+            <p class="text-muted">
+                Manage patients and appointments.
+            </p>
+
+        </div>
+
+
+        <!-- STATISTICS -->
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        👥
+                    </div>
+
+                    <h2>
+                        {{ patient_count }}
+                    </h2>
+
+                    <p>
+                        Total Patients
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        📅
+                    </div>
+
+                    <h2>
+                        {{ appointment_count }}
+                    </h2>
+
+                    <p>
+                        Appointments
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⏳
+                    </div>
+
+                    <h2>
+                        {{ pending_count }}
+                    </h2>
+
+                    <p>
+                        Pending
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-6 col-lg-3">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ✉️
+                    </div>
+
+                    <h2>
+                        {{ enquiry_count }}
+                    </h2>
+
+                    <p>
+                        Enquiries
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-6">
+
+                <a
+                    href="{{ url_for('patients') }}"
+                    class="admin-action"
+                >
+
+                    <span>
+                        👥
+                    </span>
+
+                    <div>
+
+                        <h5>
+                            Manage Patients
+                        </h5>
+
+                        <p>
+                            View registered patients.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-md-6">
+
+                <a
+                    href="{{ url_for('appointments') }}"
+                    class="admin-action"
+                >
+
+                    <span>
+                        📅
+                    </span>
+
+                    <div>
+
+                        <h5>
+                            Manage Appointments
+                        </h5>
+
+                        <p>
+                            Confirm or update appointments.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- RECENT APPOINTMENTS -->
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h3 class="mb-4">
+                    Recent Appointments
+                </h3>
+
+                {% if recent_appointments %}
+
+                <div class="table-responsive">
+
+                    <table class="table align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Patient
+                                </th>
+
+                                <th>
+                                    Doctor
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for appointment in recent_appointments %}
+
+                            <tr>
+
+                                <td>
+                                    {{ appointment["patient_name"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["doctor_name"] or "-" }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["appointment_date"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["appointment_time"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["status"] }}
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <p>
+                    No appointments found.
+                </p>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

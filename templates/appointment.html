@@ -1,0 +1,145 @@
+{% extends "base.html" %}
+
+{% block title %}
+Book Appointment
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Book Appointment
+        </h1>
+
+        <p>
+            Schedule your fertility consultation.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7">
+
+                <div class="form-card">
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('appointment') }}"
+                    >
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Select Doctor
+                            </label>
+
+                            <select
+                                name="doctor_id"
+                                class="form-select"
+                            >
+
+                                <option value="">
+                                    Any Available Doctor
+                                </option>
+
+                                {% for doctor in doctors %}
+
+                                <option value="{{ doctor['id'] }}">
+
+                                    {{ doctor["name"] }}
+                                    -
+                                    {{ doctor["specialization"] }}
+
+                                </option>
+
+                                {% endfor %}
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="row">
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Appointment Date *
+                                </label>
+
+                                <input
+                                    type="date"
+                                    name="appointment_date"
+                                    id="appointmentDate"
+                                    class="form-control"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="col-md-6 mb-3">
+
+                                <label class="form-label">
+                                    Appointment Time *
+                                </label>
+
+                                <input
+                                    type="time"
+                                    name="appointment_time"
+                                    class="form-control"
+                                    required
+                                >
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Reason / Message
+                            </label>
+
+                            <textarea
+                                name="reason"
+                                rows="4"
+                                class="form-control"
+                                placeholder="Tell us briefly about your consultation requirement."
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary w-100"
+                        >
+                            Submit Appointment Request
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

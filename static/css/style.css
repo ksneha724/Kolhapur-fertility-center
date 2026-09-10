@@ -1,0 +1,424 @@
+/* --------------------------------------------------
+   GENERAL
+-------------------------------------------------- */
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #263238;
+    background: #ffffff;
+}
+
+a {
+    text-decoration: none;
+}
+
+.navbar-brand {
+    color: #1769aa;
+}
+
+.nav-link {
+    font-weight: 500;
+}
+
+
+/* --------------------------------------------------
+   HERO
+-------------------------------------------------- */
+
+.hero {
+    padding: 100px 0;
+    background: linear-gradient(
+        135deg,
+        #eef8ff,
+        #ffffff
+    );
+}
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+}
+
+.hero p {
+    color: #607d8b;
+}
+
+.hero-card {
+    background: white;
+    padding: 50px 35px;
+    border-radius: 24px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
+}
+
+.icon-circle {
+    width: 90px;
+    height: 90px;
+    margin: 0 auto 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e3f2fd;
+    font-size: 40px;
+}
+.icon-circle img {
+    width: 130px;
+    height: 130px;
+    object-fit: contain;
+}
+
+/* --------------------------------------------------
+   SECTIONS
+-------------------------------------------------- */
+
+.section {
+    padding: 80px 0;
+}
+
+.section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+.section-heading span {
+    color: #1976d2;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.section-heading h2 {
+    margin-top: 10px;
+    font-size: 38px;
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------
+   SERVICE CARDS
+-------------------------------------------------- */
+
+.service-card {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    border: 1px solid #e9eef2;
+    transition: 0.3s;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+    border-radius: 15px;
+    background: #e3f2fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+.service-icon img {
+    width: 85px;
+    height: 85px;
+    object-fit: contain;
+}
+
+.doctor-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.service-card h3,
+.service-card h4 {
+    font-weight: 700;
+}
+
+.read-more {
+    color: #1976d2;
+    font-weight: 600;
+}
+
+
+/* --------------------------------------------------
+   DOCTOR CARDS
+-------------------------------------------------- */
+
+.doctor-card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 18px;
+    text-align: center;
+    border: 1px solid #e9eef2;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.doctor-avatar {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #e3f2fd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 45px;
+}
+
+
+/* --------------------------------------------------
+   PAGE HEADER
+-------------------------------------------------- */
+
+.page-header {
+    padding: 70px 0;
+    background: #eef8ff;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-size: 45px;
+    font-weight: 700;
+}
+
+.page-header p {
+    color: #607d8b;
+}
+
+
+/* --------------------------------------------------
+   CTA
+-------------------------------------------------- */
+
+.cta-section {
+    padding: 80px 0;
+    background: #1976d2;
+    color: white;
+}
+
+.cta-section h2 {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+
+/* --------------------------------------------------
+   ABOUT
+-------------------------------------------------- */
+
+.about-box {
+    background: #eef8ff;
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.about-box li {
+    margin-bottom: 15px;
+}
+
+
+/* --------------------------------------------------
+   FORMS
+-------------------------------------------------- */
+
+.form-card {
+    background: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.07);
+}
+
+.form-control,
+.form-select {
+    padding: 12px 15px;
+    border-radius: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    box-shadow: 0 0 0 0.2rem rgba(25, 118, 210, 0.15);
+}
+
+
+/* --------------------------------------------------
+   AUTH
+-------------------------------------------------- */
+
+.auth-section {
+    min-height: 75vh;
+    display: flex;
+    align-items: center;
+    padding: 60px 0;
+    background: #f6f9fc;
+}
+
+.auth-card {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+}
+
+.auth-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+
+/* --------------------------------------------------
+   DASHBOARD
+-------------------------------------------------- */
+
+.dashboard-section {
+    padding: 60px 0;
+    min-height: 70vh;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #e9eef2;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.04);
+}
+
+.dashboard-card h6 {
+    color: #78909c;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 18px;
+    border: 1px solid #e9eef2;
+    text-align: center;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.stat-icon {
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.stat-card h2 {
+    font-weight: 700;
+}
+
+.stat-card p {
+    color: #78909c;
+}
+
+
+/* --------------------------------------------------
+   ADMIN ACTION
+-------------------------------------------------- */
+
+.admin-action {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 25px;
+    background: white;
+    border: 1px solid #e9eef2;
+    border-radius: 18px;
+    color: #263238;
+    transition: 0.3s;
+}
+
+.admin-action:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+
+.admin-action > span {
+    font-size: 40px;
+}
+
+
+/* --------------------------------------------------
+   CONTACT
+-------------------------------------------------- */
+
+.contact-info {
+    margin-top: 30px;
+}
+
+.contact-info p {
+    margin-bottom: 20px;
+}
+
+
+/* --------------------------------------------------
+   EMPTY STATE
+-------------------------------------------------- */
+
+.empty-state {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+
+/* --------------------------------------------------
+   FOOTER
+-------------------------------------------------- */
+
+.footer {
+    background: #102a43;
+    color: white;
+    padding: 50px 0 25px;
+}
+
+.footer a {
+    display: block;
+    color: #d9e2ec;
+    margin-bottom: 8px;
+}
+
+.footer p {
+    color: #bcccdc;
+}
+
+
+/* --------------------------------------------------
+   RESPONSIVE
+-------------------------------------------------- */
+
+@media (max-width: 768px) {
+
+    .hero {
+        padding: 70px 0;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .section {
+        padding: 60px 0;
+    }
+
+    .page-header h1 {
+        font-size: 36px;
+    }
+
+    .cta-section h2 {
+        font-size: 32px;
+    }
+
+}
+/* Navbar Logo */
+
+.fertility-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    margin-right: -1px;
+}

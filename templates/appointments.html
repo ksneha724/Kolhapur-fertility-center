@@ -1,0 +1,232 @@
+{% extends "base.html" %}
+
+{% block title %}
+Manage Appointments
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between mb-4">
+
+            <div>
+
+                <h1>
+                    Appointments
+                </h1>
+
+                <p class="text-muted">
+                    Manage patient appointment requests.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('admin_dashboard') }}"
+                class="btn btn-outline-primary"
+            >
+                Back to Dashboard
+            </a>
+
+        </div>
+
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                {% if appointments %}
+
+                <div class="table-responsive">
+
+                    <table class="table align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Patient
+                                </th>
+
+                                <th>
+                                    Contact
+                                </th>
+
+                                <th>
+                                    Doctor
+                                </th>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Reason
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                                <th>
+                                    Update
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for appointment in appointments %}
+
+                            <tr>
+
+                                <td>
+                                    {{ appointment["patient_name"] }}
+                                </td>
+
+                                <td>
+
+                                    {{ appointment["patient_email"] }}
+
+                                    <br>
+
+                                    <small>
+                                        {{ appointment["patient_phone"] or "-" }}
+                                    </small>
+
+                                </td>
+
+                                <td>
+                                    {{ appointment["doctor_name"] or "-" }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["appointment_date"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["appointment_time"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["reason"] or "-" }}
+                                </td>
+
+                                <td>
+
+                                    {% if appointment["status"] == "Confirmed" %}
+
+                                    <span class="badge bg-success">
+                                        Confirmed
+                                    </span>
+
+                                    {% elif appointment["status"] == "Cancelled" %}
+
+                                    <span class="badge bg-danger">
+                                        Cancelled
+                                    </span>
+
+                                    {% elif appointment["status"] == "Completed" %}
+
+                                    <span class="badge bg-primary">
+                                        Completed
+                                    </span>
+
+                                    {% else %}
+
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+
+                                    {% endif %}
+
+                                </td>
+
+                                <td>
+
+                                    <form
+                                        method="POST"
+                                        action="{{ url_for('update_appointment_status', appointment_id=appointment['id']) }}"
+                                    >
+
+                                        <select
+                                            name="status"
+                                            class="form-select form-select-sm"
+                                            onchange="this.form.submit()"
+                                        >
+
+                                            <option
+                                                value="Pending"
+                                                {% if appointment["status"] == "Pending" %}selected{% endif %}
+                                            >
+                                                Pending
+                                            </option>
+
+                                            <option
+                                                value="Confirmed"
+                                                {% if appointment["status"] == "Confirmed" %}selected{% endif %}
+                                            >
+                                                Confirmed
+                                            </option>
+
+                                            <option
+                                                value="Completed"
+                                                {% if appointment["status"] == "Completed" %}selected{% endif %}
+                                            >
+                                                Completed
+                                            </option>
+
+                                            <option
+                                                value="Cancelled"
+                                                {% if appointment["status"] == "Cancelled" %}selected{% endif %}
+                                            >
+                                                Cancelled
+                                            </option>
+
+                                        </select>
+
+                                    </form>
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <h5>
+                        No appointments found.
+                    </h5>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

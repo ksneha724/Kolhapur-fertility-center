@@ -1,0 +1,270 @@
+{% extends "base.html" %}
+
+{% block title %}
+Home | Kolhapur Fertility Center
+{% endblock %}
+
+{% block content %}
+
+<section class="hero">
+
+    <div class="container">
+
+        <div class="row align-items-center">
+
+            <div class="col-lg-7">
+
+                <span class="badge bg-primary mb-3">
+                    Trusted Fertility Care
+                </span>
+
+                <h1>
+                    Your Journey to Parenthood
+                    Starts Here
+                </h1>
+
+                <p class="lead mt-3">
+                    Personalized fertility consultation,
+                    advanced treatment options and compassionate
+                    patient care.
+                </p>
+
+                <div class="mt-4">
+
+                    <a
+                        href="{{ url_for('appointment') }}"
+                        class="btn btn-primary btn-lg me-2"
+                    >
+                        Book Appointment
+                    </a>
+
+                    <a
+                        href="{{ url_for('contact') }}"
+                        class="btn btn-outline-primary btn-lg"
+                    >
+                        Contact Us
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-5 mt-4 mt-lg-0">
+
+                <div class="hero-card">
+
+                    <div class="icon-circle">
+                        <img src="{{url_for('static',filename='images/mombaby.png')}}" alt="Fertility care">
+                    </div>
+
+                    <h3>
+                        Compassionate Care
+                    </h3>
+
+                    <p>
+                        We provide personalized guidance
+                        throughout your fertility journey.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SERVICES -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR SERVICES
+            </span>
+
+            <h2>
+                Fertility Treatments
+            </h2>
+
+            <p>
+                Explore our fertility consultation
+                and treatment services.
+            </p>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for service in services %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+<div class="service-icon">
+
+    {% if service["name"] == "IVF Treatment" %}
+
+        <img
+            src="{{ url_for('static', filename='images/IVF-icon02-01.svg') }}"
+            alt="IVF Treatment"
+        >
+
+    {% elif service["name"] == "IUI Treatment" %}
+
+        <img
+            src="{{ url_for('static', filename='images/iui01-01.svg') }}"
+            alt="IUI Treatment"
+        >
+
+    {% elif service["name"] == "Fertility Consultation" %}
+
+        <img
+            src="{{ url_for('static', filename='images/2.jpg') }}"
+            alt="Fertility Consultation">
+
+    {% elif service["name"] == "Infertility Evaluation" %}
+
+        <img
+            src="{{ url_for('static', filename='images/1.jpg') }}"
+            alt="Infertility Evaluation"
+        >
+
+    {% elif service["name"] == "Egg & Sperm Freezing" %}
+
+        <img
+            src="{{ url_for('static', filename='images/2372527.png') }}"
+            alt="Egg & Sperm Freezing"
+        >
+
+    {% elif service["name"] == "Pregnancy Support" %}
+
+        <img
+            src="{{ url_for('static', filename='images/mom.jpg') }}"
+            alt="Pregnancy Support"
+        >
+
+    {% endif %}
+
+</div>
+
+                    <h4>
+                        {{ service["name"] }}
+                    </h4>
+
+                    <p>
+                        {{ service["description"] }}
+                    </p>
+
+                    <a
+                        href="{{ url_for('services') }}"
+                        class="read-more"
+                    >
+                        Learn More →
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DOCTORS -->
+
+<section class="section bg-light">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span>
+                OUR EXPERTS
+            </span>
+
+            <h2>
+                Meet Our Doctors
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for doctor in doctors %}
+
+            <div class="col-md-4">
+
+                <div class="doctor-card">
+
+                    <div class="doctor-avatar">
+                        👩‍⚕️
+                    </div>
+
+                    <h4>
+                        {{ doctor["name"] }}
+                    </h4>
+
+                    <p class="text-primary fw-semibold">
+                        {{ doctor["specialization"] }}
+                    </p>
+
+                    <p>
+                        {{ doctor["experience"] }} experience
+                    </p>
+
+                    <p>
+                        {{ doctor["description"] }}
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+    <div class="container text-center">
+
+        <h2>
+            Ready to Take the Next Step?
+        </h2>
+
+        <p>
+            Book your fertility consultation today.
+        </p>
+
+        <a
+            href="{{ url_for('appointment') }}"
+            class="btn btn-light btn-lg"
+        >
+            Book Appointment
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

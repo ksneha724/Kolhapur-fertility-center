@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+Our Doctors
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Our Doctors
+        </h1>
+
+        <p>
+            Meet our fertility care specialists.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row g-4">
+
+            {% for doctor in doctors %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="doctor-card h-100">
+
+                    <div class="doctor-avatar">
+                        👩‍⚕️
+                    </div>
+
+                    <h3>
+                        {{ doctor["name"] }}
+                    </h3>
+
+                    <h6 class="text-primary">
+                        {{ doctor["specialization"] }}
+                    </h6>
+
+                    <p class="fw-semibold">
+                        {{ doctor["experience"] }} experience
+                    </p>
+
+                    <p>
+                        {{ doctor["description"] }}
+                    </p>
+
+                    <a
+                        href="{{ url_for('appointment') }}"
+                        class="btn btn-primary"
+                    >
+                        Book Appointment
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

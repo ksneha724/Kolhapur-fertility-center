@@ -1,0 +1,155 @@
+{% extends "base.html" %}
+
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+
+    <div class="container">
+
+        <h1>
+            Contact Us
+        </h1>
+
+        <p>
+            We are here to help you.
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="row g-5">
+
+            <div class="col-lg-5">
+
+                <h2>
+                    Get in Touch
+                </h2>
+
+                <p>
+                    Have a question? Send us an enquiry
+                    and our team can get back to you.
+                </p>
+
+                <div class="contact-info">
+
+                    <p>
+                        📍 <strong>Location:</strong>
+                        Rajarampuri, Kolhapur
+                    </p>
+
+                    <p>
+                        📞 <strong>Phone:</strong>
+                        +91 9881014134
+                    </p>
+
+                    <p>
+                        ✉️ <strong>Email:</strong>
+                        info@kolhapurfertilitycenter.com
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <div class="form-card">
+
+                    <form
+                        method="POST"
+                        action="{{ url_for('contact') }}"
+                    >
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                name="name"
+                                class="form-control"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control"
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Phone
+                            </label>
+
+                            <input
+                                type="tel"
+                                name="phone"
+                                class="form-control"
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label class="form-label">
+                                Message *
+                            </label>
+
+                            <textarea
+                                name="message"
+                                rows="5"
+                                class="form-control"
+                                required
+                            ></textarea>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary"
+                        >
+                            Send Enquiry
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

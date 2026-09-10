@@ -1,0 +1,228 @@
+{% extends "base.html" %}
+
+{% block title %}
+Patient Dashboard
+{% endblock %}
+
+{% block content %}
+
+<section class="dashboard-section">
+
+    <div class="container">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h1>
+                    Welcome, {{ patient["name"] }}
+                </h1>
+
+                <p class="text-muted">
+                    Manage your appointments and profile.
+                </p>
+
+            </div>
+
+            <a
+                href="{{ url_for('appointment') }}"
+                class="btn btn-primary"
+            >
+                + Book Appointment
+            </a>
+
+        </div>
+
+
+        <div class="row g-4 mb-5">
+
+            <div class="col-md-4">
+
+                <div class="dashboard-card">
+
+                    <h6>
+                        Name
+                    </h6>
+
+                    <h4>
+                        {{ patient["name"] }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="dashboard-card">
+
+                    <h6>
+                        Email
+                    </h6>
+
+                    <h4>
+                        {{ patient["email"] }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-md-4">
+
+                <div class="dashboard-card">
+
+                    <h6>
+                        Phone
+                    </h6>
+
+                    <h4>
+                        {{ patient["phone"] or "Not provided" }}
+                    </h4>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card shadow-sm border-0">
+
+            <div class="card-body">
+
+                <h3 class="mb-4">
+                    My Appointments
+                </h3>
+
+
+                {% if appointments %}
+
+                <div class="table-responsive">
+
+                    <table class="table align-middle">
+
+                        <thead>
+
+                            <tr>
+
+                                <th>
+                                    Date
+                                </th>
+
+                                <th>
+                                    Time
+                                </th>
+
+                                <th>
+                                    Doctor
+                                </th>
+
+                                <th>
+                                    Reason
+                                </th>
+
+                                <th>
+                                    Status
+                                </th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for appointment in appointments %}
+
+                            <tr>
+
+                                <td>
+                                    {{ appointment["appointment_date"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["appointment_time"] }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["doctor_name"] or "Any Available Doctor" }}
+                                </td>
+
+                                <td>
+                                    {{ appointment["reason"] or "-" }}
+                                </td>
+
+                                <td>
+
+                                    {% if appointment["status"] == "Confirmed" %}
+
+                                    <span class="badge bg-success">
+                                        Confirmed
+                                    </span>
+
+                                    {% elif appointment["status"] == "Cancelled" %}
+
+                                    <span class="badge bg-danger">
+                                        Cancelled
+                                    </span>
+
+                                    {% elif appointment["status"] == "Completed" %}
+
+                                    <span class="badge bg-primary">
+                                        Completed
+                                    </span>
+
+                                    {% else %}
+
+                                    <span class="badge bg-warning text-dark">
+                                        Pending
+                                    </span>
+
+                                    {% endif %}
+
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <h5>
+                        No appointments yet
+                    </h5>
+
+                    <p>
+                        Book your first consultation.
+                    </p>
+
+                    <a
+                        href="{{ url_for('appointment') }}"
+                        class="btn btn-primary"
+                    >
+                        Book Appointment
+                    </a>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

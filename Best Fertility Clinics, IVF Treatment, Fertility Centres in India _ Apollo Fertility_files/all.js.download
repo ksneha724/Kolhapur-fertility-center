@@ -1,0 +1,416 @@
+  $(document).ready(function(){
+    $('.customer-logos').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 1
+            }
+        }]
+    });
+  });
+$(document).ready(function(){
+$('#toggle_icon').click(function() {
+   
+   $('.serach-bar').slideToggle('500');
+ 
+   $('#toggle_icon i').toggleClass('fa-search fa-times')
+  
+});
+});
+  $(document).ready(function(){
+    $('.customer-portfolio').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 1000,
+        arrows: false,
+        dots: false,
+        pauseOnHover: false,
+        responsive: [{
+            breakpoint: 768,
+            settings: {
+                slidesToShow: 2
+            }
+        }, {
+            breakpoint: 520,
+            settings: {
+                slidesToShow: 2
+            }
+        }]
+    });
+});
+
+/// some script
+
+// jquery ready start
+$(document).ready(function() {
+	// jQuery code
+
+
+	$("[data-trigger]").on("click", function(e){
+        e.preventDefault();
+        e.stopPropagation();
+        var offcanvas_id =  $(this).attr('data-trigger');
+        $(offcanvas_id).toggleClass("show");
+        $('body').toggleClass("offcanvas-active");
+        $(".screen-overlay").toggleClass("show");
+    }); 
+
+   	// Close menu when pressing ESC
+    $(document).on('keydown', function(event) {
+        if(event.keyCode === 27) {
+           $(".mobile-offcanvas").removeClass("show");
+           $("body").removeClass("overlay-active");
+        }
+    });
+
+    $(".btn-close, .screen-overlay").click(function(e){
+    	$(".screen-overlay").removeClass("show");
+        $(".mobile-offcanvas").removeClass("show");
+        $("body").removeClass("offcanvas-active");
+
+
+    }); 
+
+
+}); // jquery end
+
+  $(document).ready(function(){
+    $("#testimonial-slider").owlCarousel({
+    	items:2,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+    });
+    $("#testimonial-sliderdoc").owlCarousel({
+    	items:4,
+        itemsDesktop:[1000,3],
+        itemsDesktopSmall:[979,3],
+        itemsTablet:[767,2],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+    });
+	$(".accordion_tab").click(function(){
+    $(".accordion_tab").each(function(){
+      $(this).parent().removeClass("active");
+      $(this).removeClass("active");
+  
+	  
+    });
+    $(this).parent().addClass("active");
+    $(this).addClass("active");
+
+});
+
+  $("#testimonial-slider2").owlCarousel({
+        items:1,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider5").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay: true,
+		arrows:false,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider8").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:false,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider3").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+    $("#testimonial-sliderpvideo").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:false,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider10").owlCarousel({
+        items:3,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider11").owlCarousel({
+        items:2,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider12").owlCarousel({
+        items:1,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider4").owlCarousel({
+        items:2,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:true,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider7").owlCarousel({
+        items:2,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider6").owlCarousel({
+        items:1,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	$("#testimonial-slider9").owlCarousel({
+        items:1,
+        itemsDesktop:[1000,2],
+        itemsDesktopSmall:[979,2],
+        itemsTablet:[767,1],
+        pagination: true,
+        autoPlay:false,
+		arrows:true,
+		 navigation: true,
+		 pagination: false,
+    navigationText : ["",""],
+
+    });
+	   const choices = new Choices('[data-trigger]',
+      {
+        searchEnabled: false,
+        itemSelectText: '',
+      });
+});
+
+$(document).ready(function(){
+    $('ul.navbar-nav li.dropdown').hover(function() {
+      $(this).find('.dropdown-menu ').stop(true, true).delay(200).fadeIn(200);
+    }, function() {
+      $(this).find('.dropdown-menu ').stop(true, true).delay(200).fadeOut(200);
+    });  
+}); 
+$(document).ready(function(){
+    $('ul.navbar-nav li.dropdown ul.dropdown-menu li').hover(function() {
+      $(this).find('.submenu').stop(true, true).delay(200).fadeIn(200);
+    }, function() {
+      $(this).find('.submenu').stop(true, true).delay(200).fadeOut(200);
+    });  
+});
+$(document).ready(function(){
+    $('.catsub').hover(function() {
+      $(this).find('.submenu2').stop(true, true).delay(200).fadeIn(200);
+    }, function() {
+      $(this).find('.submenu2').stop(true, true).delay(200).fadeOut(200);
+    });  
+});
+$(document).ready(function(){
+    $('.treatsub').hover(function() {
+      $(this).find('.submenu3').stop(true, true).delay(200).fadeIn(200);
+    }, function() {
+      $(this).find('.submenu3').stop(true, true).delay(200).fadeOut(200);
+    });  
+});
+
+
+    $('.q').on("click", function(){
+  var $speed = "400",
+      $this = $(this);
+  
+  $(this).toggleClass('active')
+     .siblings()
+     .removeClass('active')
+     .end()
+  
+     .next()
+     .slideToggle($speed)
+     .siblings('.a')
+     .slideUp();
+});
+
+
+// for image gallery
+
+jQuery(document).ready(function($){
+   
+    $('.showimg').slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        arrows: false,
+        dots  : false,
+        fade: true,
+        asNavFor: '.thumb_img',
+       
+      });
+      $('.thumb_img').slick({
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        asNavFor: '.showimg',
+        dots: true,
+        centerMode: true,
+        focusOnSelect: true
+      });
+    //   $('.carousel-indicators').slick({
+    //     slidesToShow: 4,
+    //     slidesToScroll: 1,
+    //     asNavFor: '.showimg',
+    //     dots: true,
+    //     centerMode: true,
+    //     background:"white",
+    //     focusOnSelect: true
+    //   });
+    
+})
+
+
+/*$('.testimonial').click(function() {
+    console.log('hello');
+    $('.imggallery').show();
+    $('.img_list').show();
+   
+ });
+
+ $('.icon_box').click(function() {
+    $('.imggallery').hide();
+ });*/
+ function openModal() {
+  document.getElementById("myModal").style.display = "block";
+}
+
+function closeModal() {
+  document.getElementById("myModal").style.display = "none";
+}
+
+/*var slideIndex = 1;
+showSlides(slideIndex);
+
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+} 
+
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  //var slides = document.getElementsByClassName("mySlidess");
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+      slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+      dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}*/
