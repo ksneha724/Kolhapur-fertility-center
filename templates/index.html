@@ -6,12 +6,64 @@ Home | Kolhapur Fertility Center
 
 {% block content %}
 
+<!-- HERO SECTION -->
+
 <section class="hero">
 
-    <div class="container">
+    <!-- AUTOMATIC BACKGROUND SLIDER -->
+    <div class="hero-background">
+
+    <div class="hero-slides">
+
+        <div class="hero-slide">
+            <img
+                src="{{ url_for('static', filename='images/f1.jpg') }}"
+                alt="Fertility Care"
+            >
+        </div>
+
+        <div class="hero-slide">
+            <img
+                src="{{ url_for('static', filename='images/f2.jpg') }}"
+                alt="Fertility Treatment"
+            >
+        </div>
+
+        <div class="hero-slide">
+            <img
+                src="{{ url_for('static', filename='images/f3.jpg') }}"
+                alt="Fertility Care"
+            >
+        </div>
+
+        <div class="hero-slide">
+            <img
+                src="{{ url_for('static', filename='images/f4.jpg') }}"
+                alt="Happy Family"
+            >
+        </div>
+
+        <!-- COPY OF FIRST IMAGE -->
+        <div class="hero-slide">
+            <img
+                src="{{ url_for('static', filename='images/f6.jpg') }}"
+                alt="Fertility Care"
+            >
+        </div>
+
+    </div>
+
+</div>
+
+<div class="hero-overlay"></div>
+
+
+    <!-- HERO CONTENT -->
+    <div class="container hero-content">
 
         <div class="row align-items-center">
 
+            <!-- LEFT SIDE -->
             <div class="col-lg-7">
 
                 <span class="badge bg-primary mb-3">
@@ -25,8 +77,8 @@ Home | Kolhapur Fertility Center
 
                 <p class="lead mt-3">
                     Personalized fertility consultation,
-                    advanced treatment options and compassionate
-                    patient care.
+                    advanced treatment options and
+                    compassionate patient care.
                 </p>
 
                 <div class="mt-4">
@@ -49,12 +101,19 @@ Home | Kolhapur Fertility Center
 
             </div>
 
-            <div class="col-lg-5 mt-4 mt-lg-0">
+
+            <!-- RIGHT SIDE -->
+            <div class="col-lg-5 mt-5 mt-lg-0">
 
                 <div class="hero-card">
 
                     <div class="icon-circle">
-                        <img src="{{url_for('static',filename='images/mombaby.png')}}" alt="Fertility care">
+
+                        <img
+                            src="{{ url_for('static', filename='images/mombaby.png') }}"
+                            alt="Fertility Care"
+                        >
+
                     </div>
 
                     <h3>
@@ -75,7 +134,6 @@ Home | Kolhapur Fertility Center
     </div>
 
 </section>
-
 
 <!-- SERVICES -->
 

@@ -6,22 +6,113 @@ Treatments
 
 {% block content %}
 
-<section class="page-header">
+<section class="treatments-section">
 
     <div class="container">
 
-        <h1>
-            Fertility Treatments
-        </h1>
+        <div class="treatments-heading">
 
-        <p>
-            Explore our fertility care services.
-        </p>
+            <span class="small-title">
+                Our Services
+            </span>
+
+            <h1>
+                Fertility Treatments
+            </h1>
+
+            <p>
+                Personalized fertility care with advanced
+                treatment options and compassionate support.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for service in services %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <div class="service-card">
+
+                    <div class="service-icon">
+
+                        {% if service["name"] == "IVF Treatment" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f1.jpg') }}"
+                            alt="IVF Treatment"
+                        >
+
+                        {% elif service["name"] == "IUI Treatment" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f2.jpg') }}"
+                            alt="IUI Treatment"
+                        >
+
+                        {% elif service["name"] == "Fertility Consultation" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f3.jpg') }}"
+                            alt="Fertility Consultation"
+                        >
+
+                        {% elif service["name"] == "Infertility Evaluation" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f4.jpg') }}"
+                            alt="Infertility Evaluation"
+                        >
+
+                        {% elif service["name"] == "Egg & Sperm Freezing" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f5.jpg') }}"
+                            alt="Egg and Sperm Freezing"
+                        >
+
+                        {% elif service["name"] == "Pregnancy Support" %}
+
+                        <img
+                            src="{{ url_for('static', filename='images/f6.jpg') }}"
+                            alt="Pregnancy Support"
+                        >
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <h3>
+                        {{ service["name"] }}
+                    </h3>
+
+
+                    <p>
+                        {{ service["description"] }}
+                    </p>
+
+
+                    <a
+                        href="{{ url_for('appointment') }}"
+                        class="btn btn-primary"
+                    >
+                        Explore Treatment →
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
 
     </div>
 
 </section>
-
 
 <section class="section">
 
@@ -35,9 +126,55 @@ Treatments
 
                 <div class="service-card h-100">
 
+                    <!-- Treatment Image -->
                     <div class="service-icon">
-                        ❤️
+
+                        {% if service["name"] == "IVF Treatment" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/IVF-icon02-01.svg') }}"
+                                alt="IVF Treatment"
+                            >
+
+                        {% elif service["name"] == "IUI Treatment" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/iui01-01.svg') }}"
+                                alt="IUI Treatment"
+                            >
+
+                        {% elif service["name"] == "Fertility Consultation" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/2.jpg') }}"
+                                alt="Fertility Consultation"
+                            >
+
+                        {% elif service["name"] == "Infertility Evaluation" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/1.jpg') }}"
+                                alt="Infertility Evaluation"
+                            >
+
+                        {% elif service["name"] == "Egg & Sperm Freezing" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/2372527.png') }}"
+                                alt="Egg & Sperm Freezing"
+                            >
+
+                        {% elif service["name"] == "Pregnancy Support" %}
+
+                            <img
+                                src="{{ url_for('static', filename='images/mom.jpg') }}"
+                                alt="Pregnancy Support"
+                            >
+
+                        {% endif %}
+
                     </div>
+
 
                     <h3>
                         {{ service["name"] }}

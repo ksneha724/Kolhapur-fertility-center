@@ -22,54 +22,6 @@ a {
 
 
 /* --------------------------------------------------
-   HERO
--------------------------------------------------- */
-
-.hero {
-    padding: 100px 0;
-    background: linear-gradient(
-        135deg,
-        #eef8ff,
-        #ffffff
-    );
-}
-
-.hero h1 {
-    font-size: 52px;
-    font-weight: 700;
-    line-height: 1.15;
-}
-
-.hero p {
-    color: #607d8b;
-}
-
-.hero-card {
-    background: white;
-    padding: 50px 35px;
-    border-radius: 24px;
-    text-align: center;
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-}
-
-.icon-circle {
-    width: 90px;
-    height: 90px;
-    margin: 0 auto 25px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #e3f2fd;
-    font-size: 40px;
-}
-.icon-circle img {
-    width: 130px;
-    height: 130px;
-    object-fit: contain;
-}
-
-/* --------------------------------------------------
    SECTIONS
 -------------------------------------------------- */
 
@@ -421,4 +373,533 @@ a {
     height: 80px;
     object-fit: contain;
     margin-right: -1px;
+}
+/* =====================================================
+   CONTINUOUS HORIZONTAL HERO BACKGROUND
+===================================================== */
+
+.hero {
+    position: relative;
+    min-height: 680px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+
+    background: #eaf7ff;
+}
+
+
+/* BACKGROUND SLIDER */
+
+.hero-background {
+    position: absolute;
+    inset: 0;
+    top: 30px;
+    bottom: 50px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: calc(100% - 30px);
+
+    overflow: hidden;
+
+    z-index: 0;
+}
+
+
+/* MOVING TRACK */
+
+.hero-slides {
+    display: flex;
+
+    width: 500%;
+    height: 100%;
+
+    animation: continuousScroll 45s linear infinite;
+}
+
+
+/* EACH IMAGE */
+
+.hero-slide {
+    width: 20%;
+    height: 100%;
+
+    flex-shrink: 0;
+}
+
+
+.hero-slide img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    filter: none;
+    image-rendering: auto;
+}
+
+/* =====================================================
+   CONTINUOUS RIGHT → LEFT MOVEMENT
+===================================================== */
+
+@keyframes continuousScroll {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+
+/* =====================================================
+   OVERLAY
+===================================================== */
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    /* Very light overlay */
+    background: rgba(255, 255, 255, 0.02);
+}
+
+
+/* =====================================================
+   CONTENT
+===================================================== */
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+
+    width: 100%;
+
+    padding: 80px 0;
+}
+
+
+.hero h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+
+    color: #26343d;
+
+    max-width: 720px;
+}
+
+
+.hero p {
+    color: #58798b;
+
+    font-size: 20px;
+    line-height: 1.6;
+
+    max-width: 650px;
+}
+
+
+/* =====================================================
+   HERO CARD
+===================================================== */
+
+.hero-card {
+    background: rgba(255, 255, 255, 0.94);
+
+    backdrop-filter: blur(12px);
+
+    padding: 45px 35px;
+
+    border-radius: 30px;
+
+    text-align: center;
+
+    border: 1px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow:
+        0 20px 60px rgba(0, 80, 130, 0.18);
+
+    animation: floatingCard 4s ease-in-out infinite;
+}
+
+
+@keyframes floatingCard {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
+
+.icon-circle {
+    width: 140px;
+    height: 140px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e3f5ff,
+            #fceef5
+        );
+
+    overflow: hidden;
+}
+
+
+.icon-circle img {
+    width: 125px;
+    height: 125px;
+
+    object-fit: contain;
+}
+
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.hero .btn {
+    transition: all 0.3s ease;
+}
+
+
+.hero .btn:hover {
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 10px 25px rgba(0, 100, 200, 0.22);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 768px) {
+
+    .hero {
+        min-height: 720px;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .hero-content {
+        padding: 60px 0;
+    }
+
+    .hero-card {
+        margin-top: 30px;
+        padding: 30px 20px;
+    }
+}
+/* =========================================
+   MODERN FERTILITY TREATMENTS
+========================================= */
+
+.treatments-section {
+    background: linear-gradient(
+        180deg,
+        #f8fcff 0%,
+        #ffffff 100%
+    );
+
+    padding: 90px 0;
+}
+
+
+/* Section heading */
+
+.treatments-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.treatments-heading .small-title {
+    display: inline-block;
+
+    color: #1684d8;
+    font-size: 15px;
+    font-weight: 700;
+
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+    margin-bottom: 10px;
+}
+
+.treatments-heading h1 {
+    font-size: 48px;
+    font-weight: 700;
+
+    color: #18394d;
+
+    margin-bottom: 15px;
+}
+
+.treatments-heading p {
+    font-size: 18px;
+    color: #718798;
+
+    max-width: 650px;
+    margin: auto;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.service-card {
+    position: relative;
+
+    height: 100%;
+
+    background: #ffffff;
+
+    border: 1px solid #e4edf3;
+
+    border-radius: 24px;
+
+    overflow: hidden;
+
+    padding: 0 0 28px;
+
+    box-shadow:
+        0 8px 25px rgba(33, 79, 105, 0.07);
+
+    transition:
+        transform 0.35s ease,
+        box-shadow 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+/* Hover */
+
+.service-card:hover {
+    transform: translateY(-10px);
+
+    border-color: #b9ddf2;
+
+    box-shadow:
+        0 20px 45px rgba(33, 79, 105, 0.15);
+}
+
+
+/* =========================================
+   IMAGE
+========================================= */
+
+.service-icon {
+    position: relative;
+
+    width: 100%;
+    height: 230px;
+
+    margin: 0;
+
+    overflow: hidden;
+
+    background: #edf8fd;
+}
+
+
+/* Image */
+
+.service-icon img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+
+    display: block;
+
+    transition:
+        transform 0.6s ease;
+}
+
+
+/* Image zoom */
+
+.service-card:hover .service-icon img {
+    transform: scale(1.08);
+}
+
+
+/* =========================================
+   IMAGE GRADIENT
+========================================= */
+
+.service-icon::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    height: 90px;
+
+    background: linear-gradient(
+        to top,
+        rgba(0, 55, 80, 0.28),
+        transparent
+    );
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   CONTENT
+========================================= */
+
+.service-card h3 {
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: #18394d;
+
+    margin:
+        25px 25px 12px;
+}
+
+
+.service-card p {
+    font-size: 16px;
+
+    line-height: 1.7;
+
+    color: #6d8290;
+
+    margin:
+        0 25px 22px;
+
+    min-height: 54px;
+}
+
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.service-card .btn {
+    margin-left: 25px;
+
+    padding: 11px 21px;
+
+    border-radius: 30px;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    border: none;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+
+.service-card .btn:hover {
+    transform: translateX(4px);
+
+    box-shadow:
+        0 8px 20px rgba(13, 110, 253, 0.25);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 768px) {
+
+    .treatments-section {
+        padding: 60px 0;
+    }
+
+    .treatments-heading h1 {
+        font-size: 36px;
+    }
+
+    .service-icon {
+        height: 210px;
+    }
+
+}
+/* =========================================
+   HERO LOGO CIRCLE
+========================================= */
+
+.icon-circle {
+    width: 175px;
+    height: 175px;
+
+    margin: 0 auto 25px;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: linear-gradient(
+        135deg,
+        #e5f5ff,
+        #fceff7
+    );
+
+    border: 8px solid rgba(255, 255, 255, 0.8);
+
+    box-shadow: 0 8px 25px rgba(50, 100, 130, 0.12);
+}
+
+.icon-circle img {
+    width: 150%;
+    height: 150%;
+
+    object-fit: contain;
+    object-position: center;
+
+    display: block;
+
+    border-radius: 50%;
 }
